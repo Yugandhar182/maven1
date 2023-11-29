@@ -7,8 +7,6 @@ WORKDIR /usr/src/app
 # Copy the project files into the container
 COPY . .
 
-# Build the application using Maven
-RUN mvn clean package
 
 # Specify the command to run your application
 CMD ["java", "-jar", "target/SpringMVCMultipleController.jar"]
