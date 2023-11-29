@@ -1,17 +1,11 @@
-
-
-
-# Use an official Maven image as a base image
-FROM maven:3.8.4-openjdk-17
+# Use the official OpenJDK 17 base image
+FROM openjdk:17
 
 # Set the working directory in the container
-WORKDIR /usr/src/app
+WORKDIR /app
 
-# Copy the project files to the working directory
-COPY . .
-
-# Build the application using Maven
-RUN clean install
+# Copy the JAR file into the container at /app
+COPY target/SpringMVCMultipleController.jar /app/app.jar
 
 # Specify the default command to run when the container starts
-CMD ["java", "-jar", "target/SpringMVCMultipleController.jar"]
+ENTRYPOINT ["java", "-jar", "app.jar"]
