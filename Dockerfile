@@ -1,4 +1,3 @@
-FROM java:17
-EXPOSE 8080
+FROM openjdk:17
 ADD /target/SpringMVCMultipleController.jar SpringMVCMultipleController.jar
 ENTRYPOINT ["java","-jar","SpringMVCMultipleController.jar"]
